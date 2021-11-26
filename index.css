@@ -158,7 +158,7 @@ input:checked+.toggle-label:after {
 
 .card-storage,
 .card-user,
-.card-send {
+.card-sends {
     border-bottom: 1px solid hsl(var(--clr-light-gray));
 }
 
@@ -198,28 +198,24 @@ input:checked+.toggle-label:after {
 .btn:focus {
     background: inherit;
     border-color: hsl(var(--clr-dark-gray));
+    color: hsl(var(--clr-prm-one))
+}
+
+.card--second>.btn {
+    background: hsl(var(--clr-very-light-gray));
     color: hsl(var(--clr-prm-second))
 }
 
-.card--second>ul>.btn {
-    outline: yellow;
-}
-
-.card--second>ul>.btn:hover,
-.card--second>ul>.btn:focus {
+.card--second>.btn:hover,
+.card--second>.btn:focus {
     background: inherit;
     border-color: hsl(0, 0%, 95%);
     color: hsl(0, 0%, 95%);
 }
 
-.card--second>ul>a {
-    background: hsl(var(--clr-very-light-gray));
-    color: hsl(var(--clr-prm-second))
-}
-
 @media (min-width:450px) {
     .three-card-grid {
-        max-width: 80rem;
+        max-width: 65rem;
         margin-inline: auto;
         gap: 0;
         grid-template-columns: repeat(3, 1fr);
