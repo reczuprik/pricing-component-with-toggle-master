@@ -1,0 +1,267 @@
+:root {
+    --clr-prm-one: 236 72% 79%;
+    --clr-prm-second: 237 63% 63%;
+    --clr-very-light-gray: 240 78% 98%;
+    --clr-light-gray: 234 14% 74%;
+    --clr-gray: 233 13% 49%;
+    --clr-dark-gray: 232 13% 33%
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2 {
+    margin: 0;
+    padding: 0
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    opacity: .5;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+body {
+    background-image: url(images/bg-top.svg);
+    background-position: right top;
+    background-color: hsl(240, 78%, 98%);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 99vh;
+    font-size: .9375rem;
+    font-family: 'Montserrat', sans-serif;
+    color: hsl(var(--clr-dark-gray));
+}
+
+main {
+    margin-top: 3em;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.side-title {
+    font-size: 2em;
+    text-align: center;
+}
+
+
+/* toogle */
+
+.toggle {
+    display: none;
+}
+
+.toggle-label {
+    margin-inline: auto;
+    margin-top: 2em;
+    margin-bottom: 3em;
+    cursor: pointer;
+    text-indent: -99px;
+    width: 3em;
+    height: 1.5em;
+    background: linear-gradient(to right, hsl(var(--clr-prm-one)), hsl(var(--clr-prm-second)));
+    display: block;
+    border-radius: 1.5em;
+    position: relative;
+}
+
+.toggle-label:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    margin-top: 2px;
+    width: 1.2em;
+    aspect-ratio: 1;
+    background: #fff;
+    border-radius: 1.4em;
+    transition: .5s;
+}
+
+input:checked+.toggle-label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+.toggle-label>span {
+    color: hsl(var(--clr-light-gray));
+    margin-top: 2px;
+    opacity: initial;
+}
+
+.toggle-annually {
+    position: absolute;
+    left: 1em
+}
+
+.toggle-monthly {
+    position: absolute;
+    left: 11em;
+}
+
+
+/*  */
+
+.cards {
+    align-items: center;
+    margin-inline: 2em;
+}
+
+.three-card-grid {
+    display: grid;
+    gap: 1em;
+}
+
+.card {
+    background: white;
+    border-radius: 1em;
+    padding: 2em;
+    text-align: center;
+}
+
+.card-price {
+    width: max-content;
+    margin-inline: auto;
+}
+
+.card-price::before {
+    content: '\0024';
+}
+
+.card-items>li {
+    padding-top: .9em;
+    padding-bottom: .9em;
+    color: hsl(var(--clr-gray))
+}
+
+.card-storage {
+    border-top: 1px solid hsl(var(--clr-light-gray));
+}
+
+.card-storage,
+.card-user,
+.card-send {
+    border-bottom: 1px solid hsl(var(--clr-light-gray));
+}
+
+.card-items>li.card-price {
+    font-size: 3em;
+    font-weight: 700;
+    padding-block: .4em;
+}
+
+.card--second {
+    color: white;
+    background: linear-gradient(to bottom right, hsl(var(--clr-prm-one)), hsl(var(--clr-prm-second)));
+}
+
+.card--second>ul>li {
+    color: white;
+}
+
+.btn {
+    display: block;
+    padding: .8em 1.3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: .5em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    background: linear-gradient(to right, hsl(var(--clr-prm-one)), hsl(var(--clr-prm-second)));
+    color: white;
+    border-color: transparent;
+    border: 1px solid;
+    font-size: .8em;
+    width: 100%;
+}
+
+.btn:hover,
+.btn:focus {
+    background: inherit;
+    border-color: hsl(var(--clr-dark-gray));
+    color: hsl(var(--clr-prm-second))
+}
+
+.card--second>ul>.btn {
+    outline: yellow;
+}
+
+.card--second>ul>.btn:hover,
+.card--second>ul>.btn:focus {
+    background: inherit;
+    border-color: hsl(0, 0%, 95%);
+    color: hsl(0, 0%, 95%);
+}
+
+.card--second>ul>a {
+    background: hsl(var(--clr-very-light-gray));
+    color: hsl(var(--clr-prm-second))
+}
+
+@media (min-width:450px) {
+    .three-card-grid {
+        max-width: 80rem;
+        margin-inline: auto;
+        gap: 0;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1em 1fr 1em;
+        grid-template-areas: '. mid .''str mid lst' '. mid .';
+        justify-content: center;
+    }
+    body {
+        display: grid;
+        align-items: center;
+        background-image: url(images/bg-top.svg), url(images/bg-bottom.svg);
+        background-position: right top, left bottom;
+        background-size: min(50vw, 300px), min(50vw, 300px);
+        background-repeat: no-repeat, no-repeat;
+    }
+    .card:first-of-type {
+        border-radius: 1em 0 0 1em;
+        grid-area: str;
+    }
+    .card:last-of-type {
+        border-radius: 0 1em 1em 0;
+        grid-area: lst;
+    }
+    .card--second {
+        grid-area: mid;
+        padding-top: 3em;
+        padding-bottom: 3em;
+        grid-row: span 3;
+    }
+}
+
+
+/***checkbox change which price to show***/
+
+input:checked~.three-card-grid>.card>.card-items>.card-price>.annually {
+    display: none;
+}
+
+input:not(:checked)~.three-card-grid>.card>.card-items>.card-price>.monthly {
+    display: none;
+}
+
+input:checked~.toggle-label {
+    background: linear-gradient(to right, hsl(var(--clr-prm-one)/ .5), hsl(var(--clr-prm-second)/ .5));
+}
